@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import FacebookLogin from 'react-facebook-login';
+import ListShows from './ListShows'
 
 class facebook extends Component {
 
@@ -19,7 +20,7 @@ class facebook extends Component {
           userID: response.userID,
           name: response.name,
           email: response.email,
-          picture: response.picture.data.url,
+          picture: response.picture.data.url
         });
       };
 
@@ -31,18 +32,20 @@ class facebook extends Component {
 
         if(this.state.isLoggedIn){
             fbContent = (
-                <div
-                  style={{
-                    width: "400px",
-                    margin: "auto",
+              <div>
+                  <div
+                    style={{
+                      width: "400px",
+                      margin: "auto",
+                      padding: "20px"
+                    }}
+                  >
                     
-                    padding: "20px"
-                  }}
-                >
-                  
-                  <h2>Welcome {this.state.name}</h2>
-                  <p><img src={this.state.picture} alt={this.state.name} /></p>
-                  Email: {this.state.email}
+                    <h2>Welcome {this.state.name}</h2>
+                    <p><img src={this.state.picture} alt={this.state.name} /></p>
+                    Email: {this.state.email}
+                  </div>
+                  <ListShows />
                 </div>
               );
         } else{
